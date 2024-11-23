@@ -45,11 +45,11 @@ def main():
         if instruction_type(line) == InstructionType.A:
             s = symbol(line)
             if not s.isdigit() and not symbol_table.contains(s):
-                symbol_table.add_new_variable(s)
+                symbol_table.add_entry(s, symbol_table.get_next_address())
 
+    translated = list(filter(lambda x: x != '', map(translate, lines)))
     with open(args.output, 'w') as f:
-        for line in lines:
-            f.write(translate(line))
+        f.write(''.join(translated))
 
 
 if __name__ == '__main__':

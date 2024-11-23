@@ -26,9 +26,10 @@ class SymbolTable:
     def get_address(self, symbol: str) -> int:
         return self.table[symbol]
 
-    def add_new_variable(self, symbol: str):
-        self.add_entry(symbol, self.next_address)
+    def get_next_address(self) -> int:
+        address = self.next_address
         self.next_address += 1
+        return address
 
 
 symbol_table = SymbolTable()
