@@ -27,8 +27,6 @@ def validate_args(args):
     if not args.output:
         args.output = str(Path(args.file).with_suffix('.hack'))
 
-    return True
-
 
 def main():
     parser = create_parser()
